@@ -25,30 +25,35 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="product-pic-zoom">
-                                <img class="product-big-img" src="img/sisir-page-2.jpg" alt="" />
+                                <img class="product-big-img" :src="gambar_default" alt="" />
+                            </div>
+                            <div class="product-thumbs" v-if="productDetails.galleries.length > 0">
+                                <carousel :dots="false" :nav="false" class="product-thumbs-track ps-slider">
+                                    <div
+                                    v-for="ss in productDetails.galleries"
+                                    :key="ss.id"
+                                    class="pt"
+                                    @click="changeImage(ss.photo)"
+                                    :class="ss.photo == gambar_default ? 'active' : '' "
+                                    >
+                                    <img :src="ss.photo" alt />
+                                    </div>
+                                </carousel>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="product-details text-left">
                                 <div class="pd-title">
-                                    <span>Silver</span>
-                                    <h3>Sisir Mini Stainless Steel</h3>
+                                    <span>{{ productDetails.type }}</span>
+                                    <h3>{{ productDetails.name }}</h3>
                                 </div>
                                 <div class="pd-desc">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, error officia. Rem aperiam laborum voluptatum vel, pariatur modi hic provident eum iure natus quos non a sequi, id accusantium! Autem.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam possimus quisquam animi, commodi, nihil voluptate nostrum neque architecto illo officiis doloremque et corrupti cupiditate voluptatibus error illum. Commodi expedita animi nulla aspernatur.
-                                        Id asperiores blanditiis, omnis repudiandae iste inventore cum, quam sint molestiae accusamus voluptates ex tempora illum sit perspiciatis. Nostrum dolor tenetur amet, illo natus magni veniam quia sit nihil dolores.
-                                        Commodi ratione distinctio harum voluptatum velit facilis voluptas animi non laudantium, id dolorem atque perferendis enim ducimus? A exercitationem recusandae aliquam quod. Itaque inventore obcaecati, unde quam
-                                        impedit praesentium veritatis quis beatae ea atque perferendis voluptates velit architecto?
-                                    </p>
-                                    <h4>$25.00</h4>
+                                    <p v-html="productDetails.description"></p>
+                                    <h4>Rp{{ productDetails.price }}</h4>
                                 </div>
                                 <div class="quantity">
                                     <router-link to="/cart">
-                                        <a href="shopping-cart.html" class="primary-btn pd-cart">Add To Cart</a>
+                                        <a @click="saveKeranjang(productDetails.id, productDetails.name, productDetails.price, productDetails.galleries[0].photo)" href="#" class="primary-btn pd-cart">Add To Cart</a>
                                     </router-link>
                                 </div>
                             </div>
@@ -71,6 +76,8 @@
 import HeaderPangkasnesia from "@/components/HeaderPangkasnesia.vue";
 import FooterPangkasnesia from "@/components/FooterPangkasnesia.vue";
 import RelatedPangkasnesia from "@/components/RelatedPangkasnesia.vue";
+import carousel from "vue-owl-carousel";
+import axios from "axios";
 
 export default {
   name: "Product",
@@ -79,6 +86,60 @@ export default {
     HeaderPangkasnesia,
     FooterPangkasnesia,
     RelatedPangkasnesia,
+    carousel
   },
+  data() {
+    return {
+    gambar_default: "",
+    productDetails: [],
+    keranjangUser: []
+    }
+  },
+  methods: {
+    changeImage(urlImage) {
+        this.gambar_default = urlImage;
+    },
+    setDataPicture(data) {
+        this.productDetails = data;
+        this.gambar_default = data.galleries[0].photo;
+    },
+    saveKeranjang(idProduct, nameProduct, priceProduct, photoProduct) {
+
+        var productStored = {
+            "id": idProduct,
+            "name": nameProduct,
+            "price": priceProduct,
+            "photo": photoProduct
+        }
+
+        this.keranjangUser.push(productStored);
+        const parsed = JSON.stringify(this.keranjangUser);
+        localStorage.setItem('keranjangUser', parsed);
+    }
+  },
+  mounted() {
+    if (localStorage.getItem('keranjangUser')) {
+        try {
+            this.keranjangUser = JSON.parse(localStorage.getItem('keranjangUser'));
+        } catch(e) {
+            localStorage.removeItem('keranjangUser');
+        }
+    }
+    axios
+        .get("http://127.0.0.1:8000/api/products", {
+            params: {
+                id: this.$route.params.id
+            }
+        })
+        .then(res => (this.setDataPicture(res.data.data)))
+        // eslint-disable-next-line no-console
+        .catch(err => console.log(err));
+    }
 };
 </script>
+
+<style scoped>
+.product-thumbs .pt {
+    margin-right: 14px;
+}
+</style>

@@ -29,8 +29,7 @@
                                 <h5>American Crew Pomade</h5>
                             </a>
                             <div class="product-price">
-                                $13.00
-                                <span>$35.00</span>
+                                Rp25000.00
                             </div>
                         </div>
                     </div>
@@ -54,7 +53,7 @@
                                 <h5>Death Pomade Pop</h5>
                             </a>
                             <div class="product-price">
-                                $34.00
+                                Rp35000.00
                             </div>
                         </div>
                     </div>
@@ -78,7 +77,7 @@
                                 <h5>Folti Baffi Italy Pomade</h5>
                             </a>
                             <div class="product-price">
-                                $34.00
+                                Rp30000.00
                             </div>
                         </div>
                     </div>
@@ -102,7 +101,7 @@
                                 <h5>Bellagio Homme Pomade</h5>
                             </a>
                             <div class="product-price">
-                                $24.00
+                                Rp24000.00
                             </div>
                         </div>
                     </div>

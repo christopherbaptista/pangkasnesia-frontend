@@ -27,48 +27,46 @@
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             <li class="cart-icon">
-                                Shopping Cart &nbsp;
+                                Cart &nbsp;
                                 <a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    <span>{{ keranjangUser.length }}</span>
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
-                                            <tbody>
-                                                <tr>
+                                            <tbody v-if="keranjangUser.length > 0">
+
+                                                <tr v-for="keranjang in keranjangUser" :key="keranjang.id">
+                                                    <td class="si-pic">
+                                                        <img class="photo-item" :src="keranjang.photo" alt />
+                                                    </td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
-                                                            <p>$45.00 x 2</p>
-                                                            <h6>American Crew Pomade</h6>
+                                                        <p>${{ keranjang.price }} x 1</p>
+                                                        <h6>{{ keranjang.name }}</h6>
                                                         </div>
                                                     </td>
-                                                    <td class="si-close">
+                                                    <td @click="removeItem(keranjangUser.index)" class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
                                                 </tr>
+                                                
+                                            </tbody>
+                                            <tbody v-else>
                                                 <tr>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$25.00 x 1</p>
-                                                            <h6>Sisir Mini Stainless Steel</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
+                                                <td>Keranjang kosong</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="select-total">
                                         <span>total:</span>
-                                        <h5>$106.00</h5>
+                                        <h5>Rp{{ totalHarga }}.00</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
                                         <a href="#" class="primary-btn checkout-btn">
-                                            <router-link to="/cart">CHECK OUT</router-link>
+                                            <router-link to="/cart" style="color: #FFF;">CHECK OUT</router-link>
                                         </a>
                                     </div>
                                 </div>
@@ -84,6 +82,41 @@
 
 <script>
 export default {
-    name: 'HeaderPangkasnesia'
+    name: 'HeaderPangkasnesia',
+    data() {
+        return {
+            keranjangUser: []
+        }
+    },
+    methods: {
+        removeItem(index) {
+            this.keranjangUser.splice(index, 1);
+            const parsed = JSON.stringify(this.keranjangUser);
+            localStorage.setItem("keranjangUser", parsed);
+        }
+    },
+    mounted() {
+        if (localStorage.getItem('keranjangUser')) {
+            try {
+                this.keranjangUser = JSON.parse(localStorage.getItem('keranjangUser'));
+            } catch(e) {
+                localStorage.removeItem('keranjangUser');
+            }
+        }
+    },
+    computed: {
+        totalHarga() {
+            return this.keranjangUser.reduce(function(items, data){
+                return items + data.price;
+            }, 0);
+        }
+    }
 }
 </script>
+
+<style scoped>
+.photo-item {
+  width: 80px;
+  height: 80px;
+}
+</style>
