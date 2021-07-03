@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="nav-right">
                     <div class="mt-3">
-                        <i class="fa fa-power-off"></i><a href="http://127.0.0.1:8000/login"> Login /</a> <a href="http://127.0.0.1:8000/register">Register</a>
+                        <i class="fa fa-user"></i> <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
                     </div>
                 </div>
             </div>
@@ -52,11 +52,11 @@
                                                     </td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
-                                                        <p>Rp{{ keranjang.price }} x 1</p>
+                                                        <p>${{ keranjang.price }} x 1</p>
                                                         <h6>{{ keranjang.name }}</h6>
                                                         </div>
                                                     </td>
-                                                    <td @click="removeItem(keranjang.id)" class="si-close">
+                                                    <td @click="removeItem(keranjangUser.index)" class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
                                                 </tr>
@@ -98,19 +98,10 @@ export default {
         }
     },
     methods: {
-        removeItem(idx) {
-
-            // Cari id dari item yang akan dihapus
-            let keranjangUserStorage = JSON.parse(localStorage.getItem("keranjangUser"));
-            let itemKeranjangUserStorage = keranjangUserStorage.map(itemKeranjangUserStorage => itemKeranjangUserStorage.id);
-            
-            // Cocokan id item dengan id pada storage
-            let index = itemKeranjangUserStorage.findIndex(id => id == idx);
+        removeItem(index) {
             this.keranjangUser.splice(index, 1);
-
             const parsed = JSON.stringify(this.keranjangUser);
             localStorage.setItem("keranjangUser", parsed);
-            window.location.reload();
         }
     },
     mounted() {
