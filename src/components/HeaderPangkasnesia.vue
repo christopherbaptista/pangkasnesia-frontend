@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="nav-right">
                     <div class="mt-3">
-                        <i class="fa fa-power-off"></i><a href="http://127.0.0.1:8000/login"> Login /</a> <a href="http://127.0.0.1:8000/register">Register</a>
+                        <i class="fa fa-power-off"></i><a href="http://127.0.0.1:8000/login" style="color: #111111;"> Login /</a> <a href="http://127.0.0.1:8000/register" style="color: #111111;">Register</a>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@
                                         <h5>Rp{{ totalHarga }}.00</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="http://127.0.0.1:8000/login" class="primary-btn checkout-btn">
-                                            CHECK OUT
+                                        <a href="#" class="primary-btn checkout-btn">
+                                            <router-link to="/cart" style="color: #FFF;">CHECK OUT</router-link>
                                         </a>
                                     </div>
                                 </div>

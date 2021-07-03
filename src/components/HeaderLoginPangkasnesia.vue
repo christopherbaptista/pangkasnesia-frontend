@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="nav-right">
                     <div class="mt-3">
-                        <i class="fa fa-user"></i> <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
+                        <i class="fa fa-user"></i> <a href="http://127.0.0.1:8000/dashboard" style="color: #111111;">Dashboard</a>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                                                         <h6>{{ keranjang.name }}</h6>
                                                         </div>
                                                     </td>
-                                                    <td @click="removeItem(keranjang.id)" class="si-close">
+                                                    <td @click="removeItem(keranjangUser.index)" class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
                                                 </tr>
