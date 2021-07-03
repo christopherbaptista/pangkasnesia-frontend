@@ -8,17 +8,17 @@
                         
                         <div class="product-item" v-for="itemProduct in products" v-bind:key="itemProduct.id">
                             <div class="pi-pic">
-                                <img v-bind:src="itemProduct.galleries[0].photo" alt="" />
+                                <img v-bind:src="itemProduct.galleries[0].photo" alt />
                                 <ul>
                                     <li @click="saveKeranjang(itemProduct.id, itemProduct.name, itemProduct.price, itemProduct.galleries[0].photo)" class="w-icon active">
-                                        <a href="#">
+                                        <a
+                                        href="#"
+                                        >
                                         <i class="icon_bag_alt"></i>
                                         </a>
                                     </li>
                                     <li class="quick-view">
-                                        <router-link v-bind:to="'/product/'+itemProduct.id">
-                                            + Quick View
-                                        </router-link>
+                                        <router-link v-bind:to="'/product/'+itemProduct.id">+ Quick View</router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -63,23 +63,34 @@ export default {
     },
     methods: {
         saveKeranjang(idProduct, nameProduct, priceProduct, photoProduct) {
-        var productStored = {
-            id: idProduct,
-            name: nameProduct,
-            price: priceProduct,
-            photo: photoProduct
-        };
+            var productStored = {
+                id: idProduct,
+                name: nameProduct,
+                price: priceProduct,
+                photo: photoProduct
+            };
 
-        this.keranjangUser.push(productStored);
-        const parsed = JSON.stringify(this.keranjangUser);
-        localStorage.setItem("keranjangUser", parsed);
-        }
+            this.keranjangUser.push(productStored);
+            const parsed = JSON.stringify(this.keranjangUser);
+            localStorage.setItem("keranjangUser", parsed);
+
+            window.location.reload();
+        }        
     },
     mounted() {
         axios
             .get("http://127.0.0.1:8000/api/products")
             .then(res => (this.products = res.data.data.data))
+            // eslint-disable-next-line no-console
             .catch(err => console.log(err));
+        
+        if (localStorage.getItem("keranjangUser")) {
+            try {
+                this.keranjangUser = JSON.parse(localStorage.getItem("keranjangUser"));
+            } catch (e) {
+                localStorage.removeItem("keranjangUser");
+            }
+        }
     }
 };
 </script>

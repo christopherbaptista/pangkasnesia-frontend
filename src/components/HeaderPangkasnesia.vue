@@ -43,11 +43,11 @@
                                                     </td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
-                                                        <p>${{ keranjang.price }} x 1</p>
+                                                        <p>Rp{{ keranjang.price }} x 1</p>
                                                         <h6>{{ keranjang.name }}</h6>
                                                         </div>
                                                     </td>
-                                                    <td @click="removeItem(keranjangUser.index)" class="si-close">
+                                                    <td @click="removeItem(keranjang.id)" class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
                                                 </tr>
@@ -89,10 +89,19 @@ export default {
         }
     },
     methods: {
-        removeItem(index) {
+        removeItem(idx) {
+
+            // Cari id dari item yang akan dihapus
+            let keranjangUserStorage = JSON.parse(localStorage.getItem("keranjangUser"));
+            let itemKeranjangUserStorage = keranjangUserStorage.map(itemKeranjangUserStorage => itemKeranjangUserStorage.id);
+            
+            // Cocokan id item dengan id pada storage
+            let index = itemKeranjangUserStorage.findIndex(id => id == idx);
             this.keranjangUser.splice(index, 1);
+
             const parsed = JSON.stringify(this.keranjangUser);
             localStorage.setItem("keranjangUser", parsed);
+            window.location.reload();
         }
     },
     mounted() {
