@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="select-button">
                                         <a href="http://127.0.0.1:8000/login" class="primary-btn checkout-btn">
-                                            <router-link to="#" style="color: #FFF;">CHECK OUT</router-link>
+                                            CHECK OUT
                                         </a>
                                     </div>
                                 </div>
