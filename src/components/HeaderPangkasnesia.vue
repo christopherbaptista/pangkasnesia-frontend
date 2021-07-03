@@ -74,8 +74,8 @@
                                         <h5>Rp{{ totalHarga }}.00</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn checkout-btn">
-                                            <router-link to="/cart" style="color: #FFF;">CHECK OUT</router-link>
+                                        <a href="http://127.0.0.1:8000/login" class="primary-btn checkout-btn">
+                                            <router-link to="#" style="color: #FFF;">CHECK OUT</router-link>
                                         </a>
                                     </div>
                                 </div>
