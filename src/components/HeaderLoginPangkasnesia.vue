@@ -98,10 +98,19 @@ export default {
         }
     },
     methods: {
-        removeItem(index) {
+        removeItem(idx) {
+
+            // Cari id dari item yang akan dihapus
+            let keranjangUserStorage = JSON.parse(localStorage.getItem("keranjangUser"));
+            let itemKeranjangUserStorage = keranjangUserStorage.map(itemKeranjangUserStorage => itemKeranjangUserStorage.id);
+            
+            // Cocokan id item dengan id pada storage
+            let index = itemKeranjangUserStorage.findIndex(id => id == idx);
             this.keranjangUser.splice(index, 1);
+
             const parsed = JSON.stringify(this.keranjangUser);
             localStorage.setItem("keranjangUser", parsed);
+            window.location.reload();
         }
     },
     mounted() {
