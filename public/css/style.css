@@ -2081,6 +2081,7 @@ ol {
 }
 
 .product-pic-zoom {
+    width: 375px;
     margin-bottom: 10px;
     position: relative;
     z-index: 1;
