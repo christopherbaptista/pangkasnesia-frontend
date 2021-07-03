@@ -1,4 +1,4 @@
-# pangkasnesia
+# Pangkasnesia VueJS
 
 ## Project setup
 ```
