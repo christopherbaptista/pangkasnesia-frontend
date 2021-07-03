@@ -52,7 +52,7 @@
                                     <h4>Rp{{ productDetails.price }}</h4>
                                 </div>
                                 <div class="quantity">
-                                    <router-link to="/">
+                                    <router-link to="/home">
                                         <a @click="saveKeranjang(productDetails.id, productDetails.name, productDetails.price, productDetails.galleries[0].photo)" href="#" class="primary-btn pd-cart">Add To Cart</a>
                                     </router-link>
                                 </div>
