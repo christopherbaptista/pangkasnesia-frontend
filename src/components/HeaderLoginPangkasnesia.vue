@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="nav-right">
                     <div class="mt-3">
-                        <i class="fa fa-power-off"></i><a href="http://127.0.0.1:8000/login"> Login /</a> <a href="http://127.0.0.1:8000/register">Register</a>
+                        <i class="fa fa-user"></i> <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
                     </div>
                 </div>
             </div>
