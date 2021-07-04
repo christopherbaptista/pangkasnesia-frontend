@@ -3,19 +3,17 @@
     <header class="header-section">
         <div class="header-top">
             <div class="container">
-                <div class="ht-left">
-                    <div class="mail-service">
+                <div class="nav-left">
+                    <div class="mt-3 mb-3">
                         <i class=" fa fa-envelope"></i> hello.pangkasnesia@gmail.com
-                    </div>
-                    <div class="phone-service">
-                        <i class=" fa fa-phone"></i> +628 22081996
+                        <span class="ml-3"></span> <i class=" fa fa-phone"></i> +628 22081996
                     </div>
                 </div>
             </div>
             <!-- Top Right -->
             <div class="container">
                 <div class="nav-right">
-                    <div class="mt-3">
+                    <div class="mt-3 mb-3">
                         <i class="fa fa-user"></i> <a href="http://127.0.0.1:8000/dashboard" style="color: #111111;">Dashboard</a>
                     </div>
                 </div>
