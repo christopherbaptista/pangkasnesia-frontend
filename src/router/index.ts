@@ -5,6 +5,7 @@ import HomeLogin from '../views/HomeLogin.vue'
 import Product from '../views/Product.vue'
 import ShoppingCart from '../views/ShoppingCart.vue'
 import Success from '../views/Success.vue'
+import QrPage from '../views/QrPage.vue';
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,12 @@ const routes = [
     name: 'success',
     component: Success
   },
+  {
+    path: '/qrpage',
+    name: 'QrPage',
+    component: QrPage
+  },
+  
 ]
 
 const router = new VueRouter({

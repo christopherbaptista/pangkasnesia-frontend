@@ -23,7 +23,6 @@ import ProductBanner from "@/components/ProductBanner.vue";
 import InstaPangkasnesia from "@/components/InstaPangkasnesia.vue";
 import PartnerPangkasnesia from "@/components/PartnerPangkasnesia.vue";
 import FooterPangkasnesia from "@/components/FooterPangkasnesia.vue";
-
 export default {
   name: "Home",
   components: {
