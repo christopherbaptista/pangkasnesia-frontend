@@ -9,10 +9,10 @@
                 <span>pangkasnesia</span>
                 <h1 style="color:white">Pangkas pria</h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
+                  Perawatan rambut mulai dari pangkas, keramas, hingga merawat kesehatan rambut khusus
+                  pria, harga minimalis namun hasil diatas rata rata  
                 </p>
-                <a href="#" class="primary-btn">Order Now</a>
+                <a href="http://127.0.0.1:8000/login" class="primary-btn">Order Now</a>
               </div>
             </div>
           </div>
@@ -24,10 +24,11 @@
                 <span>pangkasnesia</span>
                 <h1 style="color:white">Pangkas anak-anak</h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
+                  Perawatan rambut mulai dari pangkas, keramas, hingga merawat kesehatan rambut khusus
+                  anak anak dengan pelayanan yang ramah terhadap anak anak, harga nyaman di dompet 
+                  namun hasil diatas rata - rata, dijamin anak - anak betah
                 </p>
-                <a href="#" class="primary-btn">Order Now</a>
+                <a href="http://127.0.0.1:8000/login" class="primary-btn">Order Now</a>
               </div>
             </div>
           </div>
@@ -39,10 +40,11 @@
                 <span>pangkasnesia</span>
                 <h1 style="color:white">Pangkas wanita</h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
+                  Perawatan rambut mulai dari keramas, cukur, creambath, hingga perawatan rambut
+                  lainnya khusus wanita yang tentunya dicukur oleh wanita itu sendiri sehingga keamanan
+                  dijamin 100%
                 </p>
-                <a href="#" class="primary-btn">Order Now</a>
+                <a href="http://127.0.0.1:8000/login" class="primary-btn">Order Now</a>
               </div>
             </div>
           </div>

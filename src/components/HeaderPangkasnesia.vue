@@ -14,9 +14,9 @@
             </div>
             <!-- Top Right -->
             <div class="container">
-                <div class="nav-right">
-                    <div class="mt-3">
-                        <i class="fa fa-power-off"></i><a href="http://127.0.0.1:8000/login" style="color: #111111;"> Login /</a> <a href="http://127.0.0.1:8000/register" style="color: #111111;">Register</a>
+                <div class="ht-right">
+                    <div class="mt-3 ">
+                        <i class="fa fa-power-off"></i><a href="http://127.0.0.1:8000/login" style="color: #111111;"> Login</a> <a href="http://127.0.0.1:8000/register" style="color: #111111; margin-left: 20px;">Register</a>
                     </div>
                 </div>
             </div>
