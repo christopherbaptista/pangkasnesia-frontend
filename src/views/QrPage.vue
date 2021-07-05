@@ -21,7 +21,7 @@ export default class Home extends Vue {
     public onDecode(decodeString:string) {
         alert(decodeString);
         console.log(decodeString);
-        if(decodeString === "Pembayaran berhasil. Nomor transaksi anda #TRF353571") {
+        if(decodeString === "Pemesanan Layanan Berhasil. Nomor antrian anda #TRF353571") {
             this.isScanned = true;
         }
     }
@@ -60,12 +60,16 @@ export default class Home extends Vue {
 
     <div class="qr-code-wrapper">
         <vue-qrcode 
-            :value="'Pembayaran berhasil. Nomor transaksi anda #TRF353571'">
+            :value="'Pemesanan Layanan Berhasil. Nomor antrian anda #TRF353571'">
         </vue-qrcode>
-        <h2 v-if="isScanned">
+        <div v-if="isScanned">
+            <h2>
             SUCCESS
         </h2>
+        <button ><a href="http://127.0.0.1:8000/dashboard">KEMBALI</a></button>
+        </div>
     </div>
+    
     <qrcode-stream v-if="isShowingCamera" @init="onInit" @decode="onDecode"></qrcode-stream>
   </div>
 </template>

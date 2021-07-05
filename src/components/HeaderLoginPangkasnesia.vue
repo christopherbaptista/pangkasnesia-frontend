@@ -54,7 +54,7 @@
                                                         <h6>{{ keranjang.name }}</h6>
                                                         </div>
                                                     </td>
-                                                    <td @click="removeItem(keranjangUser.index)" class="si-close">
+                                                    <td @click="removeItem(keranjang.id)" class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
                                                 </tr>

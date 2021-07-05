@@ -91,7 +91,7 @@
                                 <ul>
                                     <li class="subtotal">ID Transaction <span>#TRF3072021</span></li>
                                     <li class="subtotal mt-3">Subtotal <span>Rp{{ totalHarga }}.00</span></li>
-                                    <li class="subtotal mt-3">Diskon <span>10% (Rp{{ ditambahPajak }}.00)</span></li>
+                                    <li class="subtotal mt-3">PPN <span>10% (Rp{{ ditambahPajak }}.00)</span></li>
                                     <li class="subtotal mt-3">Total Biaya <span>Rp{{ totalBiaya }}.00</span></li>
                                     <li class="subtotal mt-3">Bank Transfer <span>Mandiri</span></li>
                                     <li class="subtotal mt-3">No. Rekening <span>2208 1996 1403</span></li>
@@ -182,7 +182,7 @@ export default {
             return (this.totalHarga * 10) / 100;
         },
         totalBiaya() {
-           return this.totalHarga - this.ditambahPajak;
+           return this.totalHarga + this.ditambahPajak;
         }
     }
 };

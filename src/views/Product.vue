@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <HeaderPangkasnesia />
+    <HeaderLoginPangkasnesia />
 
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section text-left">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <router-link to="/"><i class="fa fa-home"></i> Home</router-link>
+                        <router-link to="/Home"><i class="fa fa-home"></i> Home</router-link>
                         <span>Detail</span>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import HeaderPangkasnesia from "@/components/HeaderPangkasnesia.vue";
+import HeaderLoginPangkasnesia from "@/components/HeaderLoginPangkasnesia.vue";
 import FooterPangkasnesia from "@/components/FooterPangkasnesia.vue";
 import RelatedPangkasnesia from "@/components/RelatedPangkasnesia.vue";
 import carousel from "vue-owl-carousel";
@@ -83,7 +83,7 @@ export default {
   name: "Product",
   components: {
     // HelloWorld
-    HeaderPangkasnesia,
+    HeaderLoginPangkasnesia,
     FooterPangkasnesia,
     RelatedPangkasnesia,
     carousel
